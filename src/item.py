@@ -33,7 +33,8 @@ class Item:
         """
         Применяет установленную скидку для конкретного товара.
         """
-        self.price = float(self.price * self.pay_rate)
+        pay = self.pay_rate
+        self.price = float(self.price * pay)
 
 it1 = Item("Смартфон", 10000, 20)
 it2 = Item("Ноутбук", 20000, 5)
