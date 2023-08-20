@@ -11,9 +11,14 @@ def item2():
 
 def test_item_calculate_total_price(item1):
     assert item1.calculate_total_price() == 200000
-def test_item_calculate_total_price(item2):
-    assert item2.calculate_total_price() == 100000
+
+
 def test_apply_discount(item1):
     assert item1.apply_discount() == None
-def test_apply_discount(item2):
-    assert item2.apply_discount() == None
+
+
+def test_apply_discount(item1):
+    item1.apply_discount()
+    assert item1.calculate_total_price() == 100000
+
+
