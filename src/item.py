@@ -38,13 +38,15 @@ class Item:
         return math.floor(i_num)
 
     @classmethod
-    def instantiate_from_csv(cls):
+    def instantiate_from_csv(cls,list):
         with open('../src/items.csv', newline='') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 print(row['name'], row['price'], row['quantity'])
                 cls(row['name'], row['price'], row['quantity'])
-
+                dt = {}
+                dt = dict(name=row['name'])
+                list.append(dt)
 
     def calculate_total_price(self) -> float:
         """
@@ -65,5 +67,5 @@ class Item:
 
 it1 = Item("Смартфон", 10000, 20)
 it2 = Item("Ноутбук", 20000, 5)
-Item.all.append(it1)
-Item.all.append(it2)
+# Item.all.append(it1)
+# Item.all.append(it2)
