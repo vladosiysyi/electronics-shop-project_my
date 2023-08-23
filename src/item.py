@@ -22,15 +22,12 @@ class Item:
 
         # pass
     @property
-    def pr_name(self):
+    def name(self):
         return self.__name
 
-    @pr_name.setter
-    def pr_name(self, short_name):
-        if len(self.__name) > 10:
-            print('Длина наименования товара превышает 10 символов')
-            short_name = self.__name[:10]
-        return short_name
+    @name.setter
+    def name(self, short_name):
+        self.__name = short_name[:10]
 
     @staticmethod
     def string_to_number(num):
@@ -38,15 +35,14 @@ class Item:
         return math.floor(i_num)
 
     @classmethod
-    def instantiate_from_csv(cls,list):
+    def instantiate_from_csv(cls):
         with open('../src/items.csv', newline='') as file:
             reader = csv.DictReader(file)
             for row in reader:
-                print(row['name'], row['price'], row['quantity'])
-                cls(row['name'], row['price'], row['quantity'])
-                dt = {}
-                dt = dict(name=row['name'])
-                list.append(dt)
+                # print(row['name'], row['price'], row['quantity'])
+                item = cls(row['name'], row['price'], row['quantity'])
+                cls.all.append(item)
+
 
     def calculate_total_price(self) -> float:
         """
