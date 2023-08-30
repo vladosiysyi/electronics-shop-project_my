@@ -21,4 +21,8 @@ def test_apply_discount(item1):
     item1.apply_discount()
     assert item1.calculate_total_price() == 100000
 
+def test__repr__(item1):
+    assert item1.__repr__() == "Item('Смартфон', 10000, 20)"
 
+def test__str__(item1):
+    assert item1.__str__() == 'Смартфон'
